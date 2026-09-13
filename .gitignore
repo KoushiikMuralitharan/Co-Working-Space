@@ -1,0 +1,189 @@
+# ============================================================
+# Visual Studio / .NET
+# ============================================================
+
+.vs/
+**/.vs/
+
+# Build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Visual Studio user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache
+*.VC.db
+*.VC.VC.opendb
+
+# Test results
+TestResults/
+**/TestResults/
+*.trx
+
+# Coverage
+coverage/
+**/coverage/
+*.coverage
+*.coveragexml
+
+# ============================================================
+# .NET / ASP.NET Core
+# ============================================================
+
+# Generated files
+Generated/
+**/Generated/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+**/packages/
+
+# NuGet package cache
+project.lock.json
+project.fragment.lock.json
+
+# ASP.NET Core local development certificates
+**/https/
+*.pfx
+
+# Local launch settings
+# Keep launchSettings.json tracked because it usually contains
+# non-secret local development configuration.
+# Uncomment only if you decide not to track it.
+# **/Properties/launchSettings.json
+
+# ============================================================
+# Configuration / Secrets
+# ============================================================
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local secrets
+secrets.json
+**/secrets.json
+
+# User-specific ASP.NET configuration
+appsettings.Local.json
+**/appsettings.Local.json
+
+# IMPORTANT:
+# Do NOT ignore appsettings.json or appsettings.Development.json
+# automatically. They can be tracked if they contain no secrets.
+#
+# Put real passwords / connection strings containing secrets in:
+# - .NET User Secrets
+# - environment variables
+# - local configuration files
+
+# ============================================================
+# Node / React
+# ============================================================
+
+node_modules/
+**/node_modules/
+
+# React / Vite build output
+dist/
+**/dist/
+build/
+**/build/
+
+# Vite cache
+.vite/
+**/.vite/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Package manager caches
+.npm/
+.yarn/cache/
+.pnpm-store/
+
+# TypeScript build output
+*.tsbuildinfo
+
+# ============================================================
+# Frontend environment files
+# ============================================================
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ============================================================
+# OS generated files
+# ============================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# ============================================================
+# Logs
+# ============================================================
+
+*.log
+logs/
+**/logs/
+
+# ============================================================
+# Temporary files
+# ============================================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ============================================================
+# Database local files
+# ============================================================
+
+# PostgreSQL local/server files
+*.dump
+*.backup
+
+# SQLite local databases, if ever used for development
+*.db
+*.db-shm
+*.db-wal
+
+# ============================================================
+# IDEs / Editors
+# ============================================================
+
+.idea/
+.vscode/
+
+# ============================================================
+# Docker local overrides
+# ============================================================
+
+docker-compose.override.yml
