@@ -1,14 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\CoWorkingSpace.Application\CoWorkingSpace.Application.csproj" />
-    <ProjectReference Include="..\CoWorkingSpace.Domain\CoWorkingSpace.Domain.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoWorkingSpace.Application\CoWorkingSpace.Application.csproj" />
+    <ProjectReference Include="..\CoWorkingSpace.Domain\CoWorkingSpace.Domain.csproj" />
+  </ItemGroup>
 
 </Project>
