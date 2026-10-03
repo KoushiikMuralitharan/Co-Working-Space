@@ -1,15 +1,18 @@
-﻿using CoWorkingSpace.Application.Bookings.CancelBookings;
+﻿using System.IdentityModel.Tokens.Jwt;
+
+using CoWorkingSpace.Application.Bookings.CancelBookings;
 using CoWorkingSpace.Application.Bookings.CreateBooking;
 using CoWorkingSpace.Application.Bookings.GetBooking;
 using CoWorkingSpace.Application.Bookings.GetMyBookings;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Npgsql;
 
-namespace CoWorkingSpace.Api
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CoWorkingSpace.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BookingController : ControllerBase
     {
         private readonly CreateBookingService _createBookingService;
@@ -28,7 +31,20 @@ namespace CoWorkingSpace.Api
         [HttpPost]
         public async Task<IActionResult> CreateBooking(CreateBookingRequest request)
         {
-            
+            var userIdClaim = User.FindFirst(JwtRegisteredClaimNames.Sub);
+
+            if(userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            if(!Guid.TryParse(userIdClaim.Value, out var customerId))
+            {
+                return Unauthorized();
+            }
+
+            request.CustomerId = customerId;
+
             var result = await _createBookingService.CreateBookingAsync(request);
 
             return Ok(result);
@@ -55,6 +71,18 @@ namespace CoWorkingSpace.Api
         [HttpGet("my")]
         public async Task<IActionResult> GetMyBookings(Guid customerId)
         {
+            var userIdClaim = User.FindFirst(JwtRegisteredClaimNames.Sub);
+
+            if(userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            if(!Guid.TryParse(userIdClaim.Value, out var custommerId))
+            {
+                return Unauthorized();
+            }
+
             var result =
                 await _getMyBookingsService.GetMyBookingsAsync(customerId);
 
